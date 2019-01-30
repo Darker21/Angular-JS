@@ -1,0 +1,32 @@
+﻿<div class="content" ng-controller="signInUserControl">
+    <h1>Sign In</h1>
+    <br /><br />
+    <form novalidate name="formLogIn">
+        <div layout-gt-xs="row">
+            <md-input-container>
+                <input type="text" autocomplete="username" name="username" ng-model="attemptedUsername" ng-required="true" placeholder="Username/Email:" />
+                <div ng-messages="formLogIn.username.$error">
+                    <div ng-message="required">Please Enter a Username</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout-gt-xs="row">
+            <md-input-container>
+                <input type="password" autocomplete="current-password" ng-model="attemptedPassword" name="password" ng-required="true" placeholder="Password:" />
+                <div ng-messages="formLogIn.password.$error">
+                    <div ng-message="required">Please Enter Your Password</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+            <div flex-gt-xs>
+                <input name="buttonSubmit" type="submit" class="md-button md-raised md-primary md-ink-ripple" value="Sign In" ng-disabled="formLogIn.$invalid" ng-click="attemptLogin(formLogIn)" />
+            </div>
+            <div flex-gt-xs>
+                <input type="button" class="md-button md-raised md-ink-ripple" value="Cancel" onclick="window.location.href = '/';" />
+            </div>
+        </div>
+    </form>
+    <p class="errorText" ng-show="formLogIn.$invalid && formLogIn.username.$touched && formLogIn.password.$touched">Error: User Not Found</p>
+    
+</div>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html ng-app="userManagement">
+<head>
+    <meta charset="utf-8" />
+    <title>{{}}</title>
+    <!-- Include the core AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+
+    <!-- Include the AngularJS routing library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5/angular-material.js"></script>
+    <link type="text/css" rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="Content/Site.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5/angular-material.css" />
+    <link type="text/css" rel="stylesheet" href="https://material.angularjs.org/1.1.0-rc.5/docs.css" />
+    <!--<script type="text/javascript">
+        (function () {
+            'use strict';
+
+            angular.module('MyApp', ['ngMaterial'])
+                .controller('AppCtrl', AppCtrl);
+
+            function AppCtrl($scope, $element, $compile) {
+                $scope.currentNavItem = 'page1';
+
+                $scope.navItems = [
+                  { value: "page1", label: "Page One" },
+                  { value: "page2", label: "Page Two" },
+                  { value: "page3", label: "Page Three" },
+                ];
+
+                $scope.addItem = function () {
+                    $scope.navItems.push(
+                      {
+                          value: "page" + ($scope.navItems.length + 1),
+                          label: "Page" + ($scope.navItems.length + 1)
+                      }
+                    );
+                }
+            }
+        })();
+    </script>-->
+    <script type="text/javascript">
+        angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
+    </script>
+</head>
+    <body>
+        <div ng-controller="AppCtrl" layout-fill layout="column" ng-cloak>
+            <div layout="row" layout-align="center" flex="100">
+                <md-content class="md-padding">
+                    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                        <md-nav-item md-nav-href="#/" name="home">Home</md-nav-item>
+                        <md-nav-item md-nav-href="#/register" name="register">Register</md-nav-item>
+                        <md-nav-item md-nav-href="#/login" name="login">Sign In</md-nav-item>
+                    </md-nav-bar>
+                    <div ng-view></div>
+                </md-content>
+            </div>
+        </div>
+
+
+        <!-- Apps -->
+        <script src="Controllers/MainApp.js"></script>
+
+        <!-- Controllers -->
+        <script src="Controllers/RegisterControl.js"></script>
+        <script src="Controllers/SignInControl.js"></script>
+
+        <!-- Directives -->
+        <script src="Controllers/PasswordValidation.js"></script>
+        
+    </body>
+</html>

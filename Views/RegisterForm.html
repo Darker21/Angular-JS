@@ -1,0 +1,85 @@
+﻿
+<div class="content">
+    <h1>Register</h1>
+    <form name="RegisterForm" ng-controller="registerUserCtrl" novalidate>
+        <div>
+            <div layout-gt-md="row">
+
+                    <md-input-container flex-gt-sm>
+                        <input name="forename" tabindex="0" type="text" placeholder="Forename:" ng-model="userCreating.forename" ng-required="true" />
+                        <div ng-messages="RegisterForm.forename.$error">
+                            <div ng-message="required">This is Required!</div>
+                        </div>
+                    </md-input-container>
+                <div flex-gt-xs></div>
+                    <md-input-container flex-gt-sm>
+                        <input name="surname" type="text" placeholder="Surname:" ng-model="userCreating.surname" ng-required="true" />
+                        <div ng-messages="RegisterForm.forename.$error">
+                            <div ng-message="required">This is Required!</div>
+                        </div>
+                    </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <div flex-gt-xs>
+                    <h7>Date of Birth:</h7>
+                    <br />
+                    <md-datepicker name="dateInput" id="dateInput" ng-model="userCreating.dob" md-placeholder="Enter date" ng-required="true"></md-datepicker>
+                    <div ng-show="RegisterForm.dateInput.$invalid && (RegisterForm.dateInput.$touched || RegisterForm.$invalid && RegisterForm.$dirty)"><small class="errorText">You must enter your Date of Birth<br /><br /></small></div>
+                </div>
+                <md-input-container flex-gt-xs>
+                    <input name="email" type="email" placeholder="Email:" ng-model="userCreating.email" ng-required="true" />
+                    <div ng-messages="RegisterForm.email.$error">
+                        <div ng-message="required">This is Required!</div>
+                        <div ng-message="email">This needs to be a valid email address</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                    <md-input-container flex-gt-xs>
+                        <input name="mobile" ng-pattern="/^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/" type="number" placeholder="Phone Number:" ng-model="userCreating.mobile" ng-required="true" />
+                        <div ng-messages="RegisterForm.mobile.$error">
+                            <div ng-message="required">This is Required!</div>
+                            <div ng-message="pattern">This needs to be a valid <br />UK phone Number</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container flex-gt-xs>
+                        <input name="username" type="text" placeholder="Username:" ng-model="userCreating.username" ng-required="true" />
+                        <div ng-messages="RegisterForm.username.$error">
+                            <div ng-message="required">This is Required!</div>
+                        </div>
+                    </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <md-input-container flex-gt-xs>
+                    <input autocomplete="current-password" minLength="6" maxlength="25" name="password" type="password" placeholder="Password:" ng-model="userCreating.password" ng-required="true" />
+                    <div ng-messages="RegisterForm.password.$error">
+                        <div ng-message="required">This is Required!</div>
+                        <div ng-message="minlength">
+                            Password should be at least
+                            <br /> 6 characters
+                        </div>
+                        <div ng-message="maxLength">
+                            Password can't be more
+                            <br />than 25 characters
+                        </div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <md-input-container flex-gt-xs>
+                    <md-checkbox ng-model="userCreating.emailUpdates" aria-label="Recieve Email Updates?">
+                        Recieve Email Updates?
+                    </md-checkbox>
+                </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <div flex-gt-xs>
+                    <input class="md-button md-raised md-primary md-ink-ripple" type="submit" value="Create User" ng-disabled="RegisterForm.$invalid" ng-click="commit()" />
+                </div>
+                <div flex-gt-xs>
+                    <input type="button" class="md-button md-raised md-ink-ripple" value="Cancel" onclick="window.location.href = '/';" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
