@@ -5,6 +5,6 @@
         
         sessionStorage.setItem("createdUser", JSON.stringify($scope.userCreating));
         $scope.userCreating = null;
-        $window.location.href = "/";
+        $window.location.href = $window.location.href.replace('/register', '/');
     };
 });
