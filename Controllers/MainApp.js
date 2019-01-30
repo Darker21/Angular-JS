@@ -48,7 +48,7 @@ var MyApp;
     MyApp = angular.module('userManagement', ['ngMaterial', 'ngMessages', 'material.svgAssetsCache', 'ngRoute']).controller('AppCtrl', AppCtrl);
     function AppCtrl($scope) {
         var url = window.location.href.substr(window.location.href.lastIndexOf('/') + 1, window.location.href.length);
-        $scope.currentNavItem = url.length <= 0 ? "home" : url.trim();
+        $scope.currentNavItem = url.length <= 0 || url.includes('Default') ? "home" : url.trim();
 
         var usersigned = JSON.parse(sessionStorage.getItem('SignedInUser'));
         $scope.signedInUser = usersigned === null ? {} : usersigned;
