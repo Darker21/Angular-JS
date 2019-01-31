@@ -26,6 +26,7 @@
                     <md-datepicker name="dateInput" id="dateInput" ng-model="userCreating.dob" md-placeholder="Enter date" ng-required="true"></md-datepicker>
                     <div ng-show="RegisterForm.dateInput.$invalid && (RegisterForm.dateInput.$touched || RegisterForm.$invalid && RegisterForm.$dirty)"><small class="errorText">You must enter your Date of Birth<br /><br /></small></div>
                 </div>
+                <div flex-gt-xs></div>
                 <md-input-container flex-gt-xs>
                     <input name="email" type="email" placeholder="Email:" ng-model="userCreating.email" ng-required="true" />
                     <div ng-messages="RegisterForm.email.$error">
@@ -42,6 +43,7 @@
                             <div ng-message="pattern">This needs to be a valid <br />UK phone Number</div>
                         </div>
                     </md-input-container>
+                <div flex-gt-xs></div>
                     <md-input-container flex-gt-xs>
                         <input name="username" type="text" placeholder="Username:" ng-model="userCreating.username" ng-required="true" />
                         <div ng-messages="RegisterForm.username.$error">
