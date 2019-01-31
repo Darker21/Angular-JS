@@ -3,6 +3,10 @@
     <p class="text-primary">
         This Application was developed to explore the capabilities of AngularJS and put such capabilities to use in this user management application.
         <br /><br />
-        user : {{signedInUser.dob | date:"dd MMMM, yyyy"}}
+     <pre>UserName : {{signedInUser.username}}</pre>
+     <pre>User's Name : {{signedInUser.forename}} {{signedInUser.surname}}</pre>
+     <pre>User's DOB : {{signedInUser.dob | Date:"dd MMMM yyyy"}}</pre>
+     <pre>User's Phone No. : {{signedInUser.mobile}}</pre>
+     <pre>User's Email : {{signedInUser.email}}</pre>
     </p>
 </div>
